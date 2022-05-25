@@ -1,0 +1,23 @@
+<h2>
+    Por país
+</h2>
+<hr>
+<div class="row">
+    <div class="col">
+        <app-pais-input (onDebouunce)="sugerencias($event)" (onEnter)="Buscar($event)" placeholder="Por país">
+        </app-pais-input>
+    </div>
+</div>
+<ul class="list-group">
+    <li *ngFor="let item of paisesSugeridos" class="list-group-item list-group-item-action"><a class="nav-link"
+            [routerLink]="['/pais', item.alpha2Code]">{{item.name}}</a></li>
+</ul>
+<hr>
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontró nada con el término {{ termino }}
+</div>
+<div class="row" *ngIf="!hayError">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>

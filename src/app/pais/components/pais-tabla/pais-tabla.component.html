@@ -1,0 +1,20 @@
+<table class="table table-hover animate animate__zoomInDown">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Bandera</th>
+            <th>Nombre</th>
+            <th>Población</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pais of paises">
+            <th>{{ pais.alpha2Code }}</th>
+            <th><img [src]="pais.flag" [alt]="pais.flag" style="max-width: 100px" class="img-thumbnail"></th>
+            <th>{{pais.capital}} - {{pais.name}}</th>
+            <th>{{pais.population | number}}</th>
+            <th><a [routerLink]="['/pais', pais.alpha2Code]" >khe</a></th>
+        </tr>
+
+    </tbody>
+</table>
